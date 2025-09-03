@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freeskates Complete Sets - twenty4action</title>
+    <link rel="stylesheet" href="freeskates-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#"><img src="assets/logo.png" alt="twenty4action" onerror="this.outerHTML='<h2>twenty4action</h2>'"></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#freeskates" class="active">Freeskates</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="cart-icon">
+                    <span>🛒</span>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#home">Home</a> / <a href="#shop">Shop</a> / <span>Freeskates Complete Sets</span>
+            </div>
+
+            <h1 class="page-title">Freeskates Complete Sets</h1>
+            
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="default">Default sorting</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="grid-view active">⊞</button>
+                    <button class="list-view">☰</button>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <!-- JMKRIDE Customizer Classic Wheels -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/freeskate-classic.jpg" alt="JMKRIDE Customizer Classic Wheels" onerror="this.outerHTML='&lt;div class=&quot;placeholder-img&quot;&gt;🛼&lt;/div&gt;'">
+                        <div class="product-badge">Classic</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">JMKRIDE Customizer (CLASSIC WHEELS)</h3>
+                        <div class="product-price">149,99€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- JMKRIDE Customizer Pro-Formance Wheels -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/freeskate-pro.jpg" alt="JMKRIDE Customizer Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">JMKRIDE Customizer (PRO-FORMANCE WHEELS)</h3>
+                        <div class="product-price">149,99€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- ATTENTION Pro-Formance Wheels -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/attention-freeskate.jpg" alt="ATTENTION Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">ATTENTION [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- BLUE STEEL 22 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/blue-steel-freeskate.jpg" alt="BLUE STEEL 22 Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">BLUE STEEL 22 [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- BLACK STEEL 22 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/black-steel-freeskate.jpg" alt="BLACK STEEL 22 Classic Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge">Classic</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">BLACK STEEL 22 [Classic Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- CAFFÈ LATTE 21 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/caffe-latte-freeskate.jpg" alt="CAFFÈ LATTE 21 Classic Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge">Classic</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">CAFFÈ LATTE 21 [Classic Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- COSMONEON -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/cosmoneon-freeskate.jpg" alt="COSMONEON Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">COSMONEON [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- GOLDEN RANGER -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/golden-ranger-freeskate.jpg" alt="GOLDEN RANGER Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">GOLDEN RANGER [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- GREEN FOREST -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/green-forest-freeskate.jpg" alt="GREEN FOREST Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">GREEN FOREST [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- JUST CRUISIN' -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/just-cruisin-freeskate.jpg" alt="JUST CRUISIN' Classic Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge">Classic</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">JUST CRUISIN' [Classic Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- RASTA -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/rasta-freeskate.jpg" alt="RASTA Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">RASTA [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+
+                <!-- SUNSET -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/sunset-freeskate.jpg" alt="SUNSET Pro-Formance Wheels" onerror="this.outerHTML='<div class=\"placeholder-img\">🛼</div>'">
+                        <div class="product-badge pro">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Freeskates Complete Sets</div>
+                        <h3 class="product-name">SUNSET [Pro-Formance Wheels]</h3>
+                        <div class="product-price">129,90€ <span class="tax-info">(Deutsch) inkl. MwSt / incl. VAT</span></div>
+                        <button class="add-to-cart-btn" onclick="redirectToCoupons()">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn prev">← Previous</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn next">Next →</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Statement</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#returns">Returns Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#facebook">Facebook</a></li>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#youtube">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 twenty4action. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="freeskates-script.js"></script>
+</body>
+</html>

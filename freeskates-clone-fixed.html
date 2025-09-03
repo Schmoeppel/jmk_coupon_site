@@ -1,0 +1,383 @@
+import React from "react";
+import { ShoppingCart, Globe, Instagram, Youtube, Menu, X, ChevronRight, Shield, Package, Shirt } from "lucide-react";
+import { motion } from "framer-motion";
+
+// A single-file, production-ready React component that mimics the public look & feel
+// of the referenced site (navigation with language switcher, hero with video placeholder,
+// featured/product grids, CTA to a customizer, and a utility footer) WITHOUT copying
+// proprietary text, branding, or assets. Replace placeholder images/links with your own.
+//
+// Styling: Tailwind CSS (no imports needed in this environment). Icons via lucide-react.
+// Components: lightweight primitives here (no shadcn import for portability).
+//
+// How to use: drop this default export into a React app with Tailwind configured.
+// Optional: wire up the buttons/links to your own routes or e‑commerce backend.
+
+const products = [
+  {
+    id: "p1",
+    title: "Customizer (Classic Wheels)",
+    price: "—",
+    image: "https://picsum.photos/seed/custom-classic/800/600",
+    badge: "Customize",
+    href: "#customizer",
+  },
+  {
+    id: "p2",
+    title: "Customizer (Pro Wheels)",
+    price: "—",
+    image: "https://picsum.photos/seed/custom-pro/800/600",
+    badge: "Customize",
+    href: "#customizer",
+  },
+  {
+    id: "p3",
+    title: "Blue Steel 22 [Pro]",
+    price: "€ 249",
+    image: "https://picsum.photos/seed/bluesteel/800/600",
+    badge: "Hot",
+    href: "#shop",
+  },
+  {
+    id: "p4",
+    title: "Attention [Pro]",
+    price: "€ 249",
+    image: "https://picsum.photos/seed/attention/800/600",
+    badge: "New",
+    href: "#shop",
+  },
+];
+
+const accessories = [
+  { id: "a1", title: "Sunglasses", price: "€ 24.95", image: "https://picsum.photos/seed/sunglasses/800/600" },
+  { id: "a2", title: "Skate Backpack", price: "€ 74.95", image: "https://picsum.photos/seed/backpack/800/600" },
+  { id: "a3", title: "Shoulder Bag", price: "€ 39.99", image: "https://picsum.photos/seed/shoulder/800/600" },
+  { id: "a4", title: "Skate Towel", price: "€ 5.95", image: "https://picsum.photos/seed/towel/800/600" },
+  { id: "a5", title: "Protection Pads", price: "€ 34.90", image: "https://picsum.photos/seed/pads/800/600" },
+  { id: "a6", title: "Liquid Flask", price: "€ 27.90", image: "https://picsum.photos/seed/flask/800/600" },
+];
+
+const apparel = [
+  { id: "ap1", title: "Classic Logo Tee (Black)", price: "€ 19.90", image: "https://picsum.photos/seed/tee/800/600" },
+  { id: "ap2", title: "Face Mask", price: "€ 6.99", image: "https://picsum.photos/seed/mask/800/600" },
+];
+
+function classNames(...c) { return c.filter(Boolean).join(" "); }
+
+function NavLink({ children, href }) {
+  return (
+    <a href={href} className="text-sm font-medium text-gray-700 hover:text-gray-950 transition-colors">
+      {children}
+    </a>
+  );
+}
+
+function Pill({ children }) {
+  return (
+    <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ring-gray-300 bg-white/70 backdrop-blur">
+      {children}
+    </span>
+  );
+}
+
+function ProductCard({ item }) {
+  return (
+    <motion.a
+      href={item.href}
+      whileHover={{ y: -4 }}
+      className="group rounded-2xl overflow-hidden ring-1 ring-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+        {item.badge && (
+          <div className="absolute left-3 top-3">
+            <Pill>{item.badge}</Pill>
+          </div>
+        )}
+      </div>
+      <div className="p-4 flex-1 flex flex-col gap-2">
+        <h3 className="text-base font-semibold text-gray-900 line-clamp-2">{item.title}</h3>
+        <div className="mt-auto flex items-center justify-between">
+          <span className="text-sm text-gray-600">{item.price}</span>
+          <button className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm font-semibold ring-1 ring-gray-300 hover:ring-gray-400">Buy <ShoppingCart size={16} /></button>
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
+function SectionHeader({ kicker, title, cta, href }) {
+  return (
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        {kicker && <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">{kicker}</div>}
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">{title}</h2>
+      </div>
+      {cta && (
+        <a href={href} className="inline-flex items-center gap-1 text-sm font-semibold hover:gap-1.5 transition-all">
+          {cta} <ChevronRight size={18} />
+        </a>
+      )}
+    </div>
+  );
+}
+
+function LanguageDropdown() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="relative">
+      <button onClick={() => setOpen((o) => !o)} className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm font-semibold ring-1 ring-gray-300 hover:ring-gray-400">
+        <Globe size={16} /> EN
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-40 rounded-xl border border-gray-200 bg-white shadow-lg py-1 text-sm">
+          {[
+            { code: "EN", label: "English" },
+            { code: "DE", label: "Deutsch" },
+            { code: "ES", label: "Español" },
+            { code: "FR", label: "Français" },
+          ].map((l) => (
+            <a key={l.code} href="#" className="block px-3 py-2 hover:bg-gray-50">{l.label}</a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Header() {
+  const [mobile, setMobile] = React.useState(false);
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/90 border-b border-gray-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center gap-8">
+            <a href="#" className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-xl bg-gray-900" />
+              <span className="text-lg font-bold tracking-tight">YourBrand</span>
+            </a>
+            <nav className="hidden md:flex items-center gap-6">
+              <NavLink href="#home">Home</NavLink>
+              <div className="group relative">
+                <NavLink href="#shop">Shop</NavLink>
+                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition p-3 absolute left-0 mt-2 w-56 rounded-2xl border bg-white shadow-lg">
+                  <div className="grid gap-2 text-sm">
+                    <a className="hover:bg-gray-50 rounded-lg px-3 py-2 flex items-center gap-2" href="#sets"><Package size={16} /> Complete Sets</a>
+                    <a className="hover:bg-gray-50 rounded-lg px-3 py-2 flex items-center gap-2" href="#accessories"><Shield size={16} /> Accessories</a>
+                    <a className="hover:bg-gray-50 rounded-lg px-3 py-2 flex items-center gap-2" href="#apparel"><Shirt size={16} /> Apparel</a>
+                  </div>
+                </div>
+              </div>
+              <NavLink href="#info">Contact & Info</NavLink>
+              <NavLink href="#community">Community</NavLink>
+            </nav>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href="#cart" className="hidden sm:inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm font-semibold ring-1 ring-gray-300 hover:ring-gray-400"><ShoppingCart size={16} /> Cart</a>
+            <LanguageDropdown />
+            <button className="md:hidden inline-flex items-center justify-center rounded-xl ring-1 ring-gray-300 p-2" onClick={() => setMobile(true)}>
+              <Menu />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile sheet */}
+      {mobile && (
+        <div className="fixed inset-0 z-50">
+          <div className="absolute inset-0 bg-black/30" onClick={() => setMobile(false)} />
+          <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-bold">Menu</span>
+              <button onClick={() => setMobile(false)} className="rounded-xl ring-1 ring-gray-300 p-2"><X /></button>
+            </div>
+            <a className="py-2" href="#home">Home</a>
+            <a className="py-2" href="#shop">Shop</a>
+            <a className="py-2" href="#sets">Complete Sets</a>
+            <a className="py-2" href="#accessories">Accessories</a>
+            <a className="py-2" href="#apparel">Apparel</a>
+            <a className="py-2" href="#info">Contact & Info</a>
+            <a className="py-2" href="#community">Community</a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="home" className="relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="flex flex-col gap-6">
+            <Pill>Welcome</Pill>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900">Roll with us</h1>
+            <p className="text-base sm:text-lg text-gray-700 max-w-prose">Catch a quick vibe of what these freeskates can do, then hit the shop to grab your own setup and cruise with the squad.</p>
+            <div className="flex flex-wrap gap-3">
+              <a href="#shop" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold bg-gray-900 text-white hover:bg-gray-800">Shop now <ChevronRight size={18} /></a>
+              <a href="#customizer" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold ring-1 ring-gray-300 hover:ring-gray-400">Customize</a>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-gray-200">
+              {/* YouTube placeholder; swap src with your embed link */}
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                title="Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-3 text-xs text-gray-500">Embedding YouTube shares data with third‑party providers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PhotoStrip() {
+  // A responsive grid of lifestyle images, similar to the reference gallery
+  const imgs = Array.from({ length: 18 }).map((_, i) => `https://picsum.photos/seed/strip-${i+1}/800/600`);
+  return (
+    <section className="bg-gray-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {imgs.map((src, idx) => (
+            <motion.img
+              key={idx}
+              src={src}
+              alt={`Gallery ${idx+1}`}
+              className="rounded-xl aspect-square object-cover ring-1 ring-gray-200"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CustomizerCTA() {
+  return (
+    <section id="customizer" className="">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+        <div className="rounded-3xl ring-1 ring-gray-200 p-8 sm:p-12 bg-gradient-to-br from-white to-gray-50">
+          <SectionHeader kicker="Customizer" title="Make your own combo" />
+          <p className="mt-3 max-w-2xl text-gray-700">Pick colors for plates, wheels, hardware — there are tons of possible mixes. Spin up your dream set in minutes.</p>
+          <a href="#customizer-app" className="mt-6 inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold bg-gray-900 text-white hover:bg-gray-800">Create your setup <ChevronRight size={18} /></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductSection() {
+  return (
+    <section id="sets" className="bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+        <SectionHeader kicker="Shop" title="Freeskates — Complete Sets" cta="See all complete sets" href="#shop" />
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {products.map((p) => <ProductCard key={p.id} item={p} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GridSection({ id, title, items, cta, href, kicker }) {
+  return (
+    <section id={id} className="bg-gray-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+        <SectionHeader kicker={kicker} title={title} cta={cta} href={href} />
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          {items.map((item) => (
+            <motion.a key={item.id} href="#" whileHover={{ y: -4 }} className="group rounded-2xl overflow-hidden ring-1 ring-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <div className="p-3 flex-1 flex flex-col gap-1">
+                <div className="text-sm font-semibold text-gray-900 line-clamp-2">{item.title}</div>
+                <div className="text-xs text-gray-600">{item.price}</div>
+                <div className="mt-2">
+                  <button className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm font-semibold ring-1 ring-gray-300 hover:ring-gray-400">Select options</button>
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-4 gap-10">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-xl bg-gray-900" />
+              <span className="text-lg font-bold tracking-tight">YourBrand</span>
+            </div>
+            <p className="text-sm text-gray-600">Small print about your company. Swap this out with your actual info and policies.</p>
+          </div>
+          <div>
+            <div className="text-sm font-semibold mb-3">Shop</div>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li><a href="#sets" className="hover:text-gray-950">Complete Sets</a></li>
+              <li><a href="#accessories" className="hover:text-gray-950">Accessories</a></li>
+              <li><a href="#apparel" className="hover:text-gray-950">Apparel</a></li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-sm font-semibold mb-3">Info</div>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li><a href="#info" className="hover:text-gray-950">Privacy</a></li>
+              <li><a href="#info" className="hover:text-gray-950">Terms</a></li>
+              <li><a href="#info" className="hover:text-gray-950">Company</a></li>
+              <li><a href="#info" className="hover:text-gray-950">Shipping</a></li>
+            </ul>
+          </div>
+          <div>
+            <div className="text-sm font-semibold mb-3">Community</div>
+            <div className="flex gap-3">
+              <a href="#" className="inline-flex items-center justify-center rounded-xl ring-1 ring-gray-300 p-2"><Instagram /></a>
+              <a href="#" className="inline-flex items-center justify-center rounded-xl ring-1 ring-gray-300 p-2"><Youtube /></a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 flex items-center justify-between text-xs text-gray-500">
+          <div>© {new Date().getFullYear()} YourBrand</div>
+          <div className="flex gap-3">
+            <a href="#info" className="hover:text-gray-700">Privacy</a>
+            <a href="#info" className="hover:text-gray-700">Right of Withdrawal</a>
+            <a href="#info" className="hover:text-gray-700">Terms of Service</a>
+            <a href="#info" className="hover:text-gray-700">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default function Twenty4ActionStylePage() {
+  return (
+    <div className="min-h-dvh bg-white text-gray-900">
+      <Header />
+      <main>
+        <Hero />
+        <PhotoStrip />
+        <CustomizerCTA />
+        <ProductSection />
+        <GridSection id="accessories" title="Accessories" items={accessories} cta="See all accessories" href="#shop" kicker="Shop" />
+        <GridSection id="apparel" title="Apparel" items={apparel} cta="See all apparel" href="#shop" kicker="Shop" />
+      </main>
+      <Footer />
+    </div>
+  );
+}

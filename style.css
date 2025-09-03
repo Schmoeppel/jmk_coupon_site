@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* 90s RETRO MADNESS CSS! */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +6,19 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Comic Neue', cursive;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8fafc;
+    color: #ff00ff;
+    background: linear-gradient(45deg, #ff0080, #8000ff, #0080ff, #00ff80, #ff8000);
+    background-size: 400% 400%;
+    animation: rainbowBg 3s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes rainbowBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -18,14 +27,22 @@ body {
     padding: 0 20px;
 }
 
-/* Header and Navigation */
+/* MEGA FLASHY NAVBAR! */
 .navbar {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #ff0080, #8000ff, #0080ff);
+    background-size: 300% 100%;
+    animation: slideRainbow 2s linear infinite;
+    box-shadow: 0 4px 20px rgba(255, 0, 128, 0.6);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    border-bottom: 5px solid #ffff00;
+}
+
+@keyframes slideRainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
 
 .nav-container {
@@ -35,13 +52,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 80px;
 }
 
 .logo h1 {
-    color: #2563eb;
-    font-weight: 700;
-    font-size: 1.8rem;
+    color: #ffff00;
+    font-family: 'Bungee', cursive;
+    font-size: 1.5rem;
+    text-shadow: 3px 3px 0px #ff0080, 6px 6px 0px #8000ff;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
 .nav-menu {
@@ -52,157 +77,288 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #64748b;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: #ffff00;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 0px #ff0080;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
 .nav-menu a:hover {
-    color: #2563eb;
+    color: #00ff80;
+    transform: scale(1.2) rotate(5deg);
 }
 
-/* Hero Section */
+/* TOTALLY RADICAL HERO SECTION! */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 120px 0 80px;
+    background: radial-gradient(circle, #ff0080, #8000ff, #0080ff);
+    color: #ffff00;
+    padding: 150px 0 100px;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 10px solid #00ff80;
 }
 
-.hero-content h2 {
+.zoom-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url('assets/Screenshot_20250829-115621.png');
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    animation: zoomInOut 3s ease-in-out infinite;
+    opacity: 0.3;
+    border-radius: 50%;
+    border: 5px solid #ffff00;
+}
+
+@keyframes zoomInOut {
+    0% { transform: translate(-50%, -50%) scale(0.8) rotate(0deg); }
+    50% { transform: translate(-50%, -50%) scale(1.3) rotate(180deg); }
+    100% { transform: translate(-50%, -50%) scale(0.8) rotate(360deg); }
+}
+
+.flashy-banner {
+    background: linear-gradient(45deg, #ff0080, #ffff00, #00ff80, #0080ff);
+    background-size: 400% 400%;
+    animation: rainbowBg 1s ease infinite;
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+    position: relative;
+    z-index: 10;
+}
+
+.banner-text {
+    font-family: 'Bungee', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    text-shadow: 2px 2px 0px #fff;
+    animation: textFlash 0.5s ease infinite;
+}
+
+@keyframes textFlash {
+    0% { color: #000; }
+    50% { color: #fff; }
+    100% { color: #000; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.neon-text {
+    font-family: 'Bungee', cursive;
     font-size: 3rem;
     font-weight: 700;
+    color: #00ff80;
+    text-shadow: 0 0 10px #00ff80, 0 0 20px #00ff80, 0 0 30px #00ff80;
+    animation: neonGlow 1s ease-in-out infinite alternate;
     margin-bottom: 1rem;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+@keyframes neonGlow {
+    from { text-shadow: 0 0 10px #00ff80, 0 0 20px #00ff80, 0 0 30px #00ff80; }
+    to { text-shadow: 0 0 20px #00ff80, 0 0 30px #00ff80, 0 0 40px #00ff80; }
 }
 
-.cta-button {
+.blink {
+    font-size: 1.5rem;
+    font-weight: 700;
+    animation: blink 0.8s linear infinite;
+    margin-bottom: 2rem;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.rainbow-button {
     display: inline-block;
-    background: #fff;
-    color: #2563eb;
-    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff0080, #ffff00, #00ff80, #0080ff);
+    background-size: 400% 400%;
+    animation: rainbowBg 1s ease infinite;
+    color: #000 !important;
+    padding: 20px 40px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-shadow: none;
+    border: 3px solid #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.rainbow-button:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
-/* Coupons Section */
+/* EXTREME COUPON SECTION! */
 .coupons-section {
     padding: 80px 0;
-    background: #fff;
+    background: linear-gradient(135deg, #8000ff, #ff0080, #ffff00);
+    background-size: 400% 400%;
+    animation: rainbowBg 4s ease infinite;
+    border-top: 10px solid #00ff80;
+    border-bottom: 10px solid #0080ff;
 }
 
-.coupons-section h2 {
+.section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-family: 'Bungee', cursive;
+    font-size: 3rem;
     margin-bottom: 3rem;
-    color: #1e293b;
+    color: #ffff00;
+    text-shadow: 3px 3px 0px #ff0080, 6px 6px 0px #000;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 7% { transform: rotateZ(0deg); }
+    15% { transform: rotateZ(-15deg); }
+    20% { transform: rotateZ(10deg); }
+    25% { transform: rotateZ(-10deg); }
+    30% { transform: rotateZ(6deg); }
+    35% { transform: rotateZ(-4deg); }
+    40%, 100% { transform: rotateZ(0deg); }
 }
 
 .coupons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.coupon-card {
-    background: #fff;
-    border-radius: 15px;
+.retro-card {
+    background: linear-gradient(45deg, #ffff00, #00ff80, #0080ff);
+    border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border: 2px solid #f1f5f9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 5px solid #ff0080;
+    box-shadow: 0 0 30px rgba(255, 0, 128, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    animation: cardFloat 3s ease-in-out infinite;
 }
 
-.coupon-card::before {
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.retro-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s linear infinite;
 }
 
-.coupon-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.retro-card:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 0 50px rgba(255, 0, 128, 1), inset 0 0 30px rgba(255, 255, 255, 0.5);
 }
 
 .coupon-brand {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1e293b;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
     margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0px #fff;
+    position: relative;
+    z-index: 10;
 }
 
 .coupon-discount {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #dc2626;
+    color: #ff0080;
     margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 0px #fff, 6px 6px 0px #000;
+    position: relative;
+    z-index: 10;
 }
 
 .coupon-description {
-    color: #64748b;
+    color: #000;
     margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 10;
 }
 
 .coupon-code {
-    background: #f1f5f9;
-    padding: 10px 15px;
-    border-radius: 8px;
+    background: #000;
+    color: #00ff80;
+    padding: 15px;
+    border-radius: 10px;
     font-family: 'Courier New', monospace;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 1rem;
-    border: 2px dashed #cbd5e1;
+    border: 3px solid #00ff80;
+    text-shadow: 0 0 10px #00ff80;
+    position: relative;
+    z-index: 10;
+    font-size: 1.1rem;
 }
 
-.copy-button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
+.retro-button {
+    background: linear-gradient(45deg, #ff0080, #8000ff);
+    color: #ffff00 !important;
+    border: 3px solid #ffff00;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     width: 100%;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 0px #000;
+    position: relative;
+    z-index: 10;
+    font-family: 'Comic Neue', cursive;
 }
 
-.copy-button:hover {
-    background: #1d4ed8;
+.retro-button:hover {
+    background: linear-gradient(45deg, #8000ff, #ff0080);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
 }
 
-.copy-button:active {
-    transform: scale(0.98);
+.retro-button:active {
+    transform: scale(0.95);
 }
 
-/* Categories Section */
+/* RADICAL CATEGORIES SECTION! */
 .categories-section {
     padding: 80px 0;
-    background: #f8fafc;
-}
-
-.categories-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1e293b;
+    background: linear-gradient(45deg, #00ff80, #0080ff, #8000ff);
+    background-size: 400% 400%;
+    animation: rainbowBg 3s ease infinite;
+    border-top: 10px solid #ff0080;
+    border-bottom: 10px solid #ffff00;
 }
 
 .categories-grid {
@@ -211,70 +367,76 @@ body {
     gap: 2rem;
 }
 
-.category-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-3px);
-}
-
 .category-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #1e293b;
+    color: #000;
+    text-shadow: 2px 2px 0px #fff;
+    font-family: 'Bungee', cursive;
+    position: relative;
+    z-index: 10;
 }
 
 .category-card p {
-    color: #64748b;
+    color: #000;
+    font-weight: 600;
+    position: relative;
+    z-index: 10;
 }
 
-/* About Section */
+/* ABOUT SECTION MADNESS! */
 .about-section {
     padding: 80px 0;
-    background: #fff;
+    background: linear-gradient(135deg, #ffff00, #ff0080, #8000ff);
+    background-size: 400% 400%;
+    animation: rainbowBg 2s ease infinite;
     text-align: center;
+    border-top: 10px solid #00ff80;
+    border-bottom: 10px solid #0080ff;
 }
 
-.about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #1e293b;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    color: #64748b;
+.about-text {
+    font-size: 1.3rem;
+    color: #000;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
+    font-weight: 600;
+    text-shadow: 1px 1px 0px #fff;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid #000;
 }
 
-/* Footer */
+/* FOOTER OF DOOM! */
 footer {
-    background: #1e293b;
-    color: #cbd5e1;
+    background: linear-gradient(90deg, #000, #ff0080, #000);
+    color: #ffff00;
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 0px #ff0080;
+    border-top: 5px solid #00ff80;
 }
 
-/* Responsive Design */
+/* MOBILE MADNESS! */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
     }
     
-    .hero-content h2 {
+    .neon-text {
         font-size: 2rem;
     }
     
-    .hero-content p {
-        font-size: 1rem;
+    .banner-text {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
     }
     
     .coupons-grid {
@@ -284,13 +446,167 @@ footer {
     .categories-grid {
         grid-template-columns: 1fr;
     }
+    
+    .zoom-bg {
+        width: 200px;
+        height: 200px;
+    }
 }
 
-/* Animation for copied notification */
+/* SPECIAL EFFECTS! */
 .copied {
-    background: #10b981 !important;
+    background: linear-gradient(45deg, #00ff80, #ffff00) !important;
+    color: #000 !important;
 }
 
 .copied::after {
-    content: ' ✓ Copied!';
+    content: ' ✓ KOPIERT!!!';
+}
+
+/* WALKING BEAR THAT FOLLOWS MOUSE! */
+#walking-bear {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    font-size: 3rem;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: bearWalk 1s ease-in-out infinite;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.3));
+    cursor: pointer;
+    transform-origin: center bottom;
+}
+
+@keyframes bearWalk {
+    0%, 100% { 
+        transform: translateY(0px) scaleX(1); 
+    }
+    25% { 
+        transform: translateY(-5px) scaleX(0.95); 
+    }
+    50% { 
+        transform: translateY(-8px) scaleX(1.05); 
+    }
+    75% { 
+        transform: translateY(-3px) scaleX(0.98); 
+    }
+}
+
+#walking-bear:hover {
+    animation: bearDance 0.5s ease-in-out infinite;
+    font-size: 3.5rem;
+}
+
+@keyframes bearDance {
+    0%, 100% { 
+        transform: rotate(0deg) scale(1); 
+    }
+    25% { 
+        transform: rotate(-10deg) scale(1.1); 
+    }
+    50% { 
+        transform: rotate(10deg) scale(0.9); 
+    }
+    75% { 
+        transform: rotate(-5deg) scale(1.05); 
+    }
+}
+
+/* Bear walking to the right */
+#walking-bear.walking-right {
+    animation: bearWalkRight 1s ease-in-out infinite;
+}
+
+@keyframes bearWalkRight {
+    0%, 100% { 
+        transform: translateY(0px) scaleX(1); 
+    }
+    25% { 
+        transform: translateY(-5px) scaleX(0.95) rotateY(0deg); 
+    }
+    50% { 
+        transform: translateY(-8px) scaleX(1.05) rotateY(10deg); 
+    }
+    75% { 
+        transform: translateY(-3px) scaleX(0.98) rotateY(-5deg); 
+    }
+}
+
+/* Bear walking to the left */
+#walking-bear.walking-left {
+    animation: bearWalkLeft 1s ease-in-out infinite;
+    transform: scaleX(-1);
+}
+
+@keyframes bearWalkLeft {
+    0%, 100% { 
+        transform: scaleX(-1) translateY(0px); 
+    }
+    25% { 
+        transform: scaleX(-1) translateY(-5px) rotateY(0deg); 
+    }
+    50% { 
+        transform: scaleX(-1) translateY(-8px) rotateY(10deg); 
+    }
+    75% { 
+        transform: scaleX(-1) translateY(-3px) rotateY(-5deg); 
+    }
+}
+
+/* Speech bubble for walking dog */
+.speech-bubble {
+    position: fixed;
+    background: #fff;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 9999;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    border: 3px solid #ff00ff;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+    animation: speechBubbleAnimation 4s infinite;
+    pointer-events: none;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    left: 17px;
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #ff00ff;
+}
+
+@keyframes speechBubbleAnimation {
+    0%, 70% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(10px);
+    }
+    15%, 55% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(10px);
+    }
 }
