@@ -491,6 +491,34 @@ window.addEventListener('resize', function() {
     }
 });
 
+// Add sentences for the speech bubble
+const speechSentences = [
+    "Ich hab sooo viel Energie für dich! ⚡",
+    "Ich bin zwar ein Hund aber auch ein Vorfreudenbär",
+    "Ich hab mir gleich 2 Paar gekauft, weil ich ein Vierbeiner bin",
+    "50% ich glaube ich träume! Hat mal jemand eine esim für mich?",
+    "*excited*",
+    "ich würd zuschlagen",
+    "C die sind wie für dich gemacht!",
+    "Krass!",
+    "So Krass!",
+    "Mega!",
+    "Ich hab gehört am Damm kann man gut Schredden",
+    "Wie wärs mit nem Blitzfeierabend?"
+];
+
+// Function to update the speech bubble text randomly
+function updateSpeechBubble() {
+    const speechBubble = document.getElementById('speech-bubble');
+    if (speechBubble) {
+        const randomSentence = speechSentences[Math.floor(Math.random() * speechSentences.length)];
+        speechBubble.textContent = randomSentence;
+    }
+}
+
+// Update the speech bubble text periodically
+setInterval(updateSpeechBubble, 10000); // Change text every 10 seconds
+
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
@@ -500,14 +528,17 @@ document.addEventListener('DOMContentLoaded', function() {
     setupBearInteraction();
     animateBear(); // Start bear animation loop
     
+    // Initialize speech bubble with random text immediately
+    updateSpeechBubble();
+    
     // Start random effects
-    setInterval(randomShake, 5000);
+    setInterval(randomShake, 10000);
     
     // Add some welcome confetti
     setTimeout(() => {
         createConfetti();
         showToast('🌈 WILLKOMMEN ZU DEN KRASSESTEN DEALS! 🌈');
-    }, 1000);
+    }, 10000);
 });
 
 // Make the walking dog and speech bubble follow mouse with direction tracking

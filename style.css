@@ -106,14 +106,14 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     background-image: url('assets/Screenshot_20250829-115621.png');
     background-size: cover;
     background-position: center;
     transform: translate(-50%, -50%);
     animation: zoomInOut 3s ease-in-out infinite;
-    opacity: 0.3;
+    opacity: 0.8;
     border-radius: 50%;
     border: 5px solid #ffff00;
 }
@@ -519,16 +519,16 @@ footer {
 
 @keyframes bearWalkRight {
     0%, 100% { 
-        transform: translateY(0px) scaleX(1); 
+        transform: translateY(0px) scaleX(-1); 
     }
     25% { 
-        transform: translateY(-5px) scaleX(0.95) rotateY(0deg); 
+        transform: translateY(-5px) scaleX(-0.95) rotateY(0deg); 
     }
     50% { 
-        transform: translateY(-8px) scaleX(1.05) rotateY(10deg); 
+        transform: translateY(-8px) scaleX(-1.05) rotateY(10deg); 
     }
     75% { 
-        transform: translateY(-3px) scaleX(0.98) rotateY(-5deg); 
+        transform: translateY(-3px) scaleX(-0.98) rotateY(-5deg); 
     }
 }
 
@@ -540,16 +540,16 @@ footer {
 
 @keyframes bearWalkLeft {
     0%, 100% { 
-        transform: scaleX(-1) translateY(0px); 
+        transform: scaleX(1) translateY(0px); 
     }
     25% { 
-        transform: scaleX(-1) translateY(-5px) rotateY(0deg); 
+        transform: scaleX(1) translateY(-5px) rotateY(0deg); 
     }
     50% { 
-        transform: scaleX(-1) translateY(-8px) rotateY(10deg); 
+        transform: scaleX(1) translateY(-8px) rotateY(10deg); 
     }
     75% { 
-        transform: scaleX(-1) translateY(-3px) rotateY(-5deg); 
+        transform: scaleX(1) translateY(-3px) rotateY(-5deg); 
     }
 }
 
@@ -568,7 +568,7 @@ footer {
     transition: all 0.3s ease;
     border: 3px solid #ff00ff;
     box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
-    animation: speechBubbleAnimation 4s infinite;
+    animation: speechBubbleAnimation 10s infinite;
     pointer-events: none;
 }
 
@@ -597,11 +597,11 @@ footer {
 }
 
 @keyframes speechBubbleAnimation {
-    0%, 70% { 
+    0%, 85% { 
         opacity: 0; 
         transform: scale(0.8) translateY(10px);
     }
-    15%, 55% { 
+    10%, 75% { 
         opacity: 1; 
         transform: scale(1) translateY(0);
     }
